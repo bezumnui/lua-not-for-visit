@@ -11,11 +11,9 @@ function showmenu()
         gg.setRanges(gg.REGION_ANONYMOUS)
         gg.searchNumber("37 900 225 938 980 864", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1, 1);
         local offset = gg.getResults(1)[1].address;
-        print(offset)
-        print(offset + 1)
-        print(string.format("%x", tostring(offset + 1)))
+        print(string.format("%x", tostring(offset + 4)))
         gg.clearResults()
-        gg.searchAddress(string.format("%x", tostring(offset + 1)), -1, gg.TYPE_DWORD, gg.SIGN_EQUAL, 0, -1)
+        gg.searchAddress(string.format("%x", tostring(offset + 4)), -1, gg.TYPE_DWORD, gg.SIGN_EQUAL, 0, -1)
         local coins = gg.getResults(1)[1];
         gg.addListItems(coins);
         coins.freeze = true;
