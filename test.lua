@@ -1,4 +1,4 @@
-gg.toast("Test cheat activated");
+gg.toast("Test cheat activated", true);
 
 local L0_0, L1_1, L3_2;
 L0_0 = "\"";
@@ -6,9 +6,14 @@ L1_1 = "Test cheat";
 local isActive = true;
 local showmenu;
 function showmenu()
-    local option = gg.choice({"A", "B", "Exit"});
+    local option = gg.choice({"freeze coins", "B", "Exit"});
     if option == 1 then
-        gg.toast("You chose A!")
+        gg.setRanges(gg.REGION_ANONYMOUS)
+        gg.searchNumber("560", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1, 1);
+        local offset = gg.getResults(1);
+        gg.toast(offset[0])
+        
+        gg.toast("---!")
     else if option == 2 then
         gg.toast("You chose B!")
     else
@@ -33,3 +38,4 @@ while isActive do
             showmenu();
     end
 end
+ 
