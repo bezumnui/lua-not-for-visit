@@ -9,9 +9,11 @@ function showmenu()
     local option = gg.choice({"freeze coins", "B", "Exit"});
     if option == 1 then
         gg.setRanges(gg.REGION_ANONYMOUS)
-        gg.searchNumber("560", gg.TYPE_DOUBLE, false, gg.SIGN_EQUAL, 0, -1, 1);
-        local offset = gg.getResults(1);
-        gg.toast(offset[0])
+        gg.searchNumber("560", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 1);
+        local offset = gg.getResults(1)[1].address;
+        local coins = gg.searchAddress(tostring(offset + 38))
+        print(coins)
+        
         
         gg.toast("---!")
     else if option == 2 then
