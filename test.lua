@@ -9,12 +9,14 @@ function showmenu()
     local option = gg.choice({"freeze coins", "B", "Exit"});
     if option == 1 then
         gg.setRanges(gg.REGION_ANONYMOUS)
-        gg.searchNumber("560", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 1);
+        gg.searchNumber("37 900 225 938 980 864", gg.TYPE_QWORD, false, gg.SIGN_EQUAL, 0, -1, 1);
         local offset = gg.getResults(1)[1].address;
-        print(offset + 38)
+        print(offset)
+        print(offset + 1)
+        
         gg.clearResults()
-        gg.searchAddress(tostring(offset + 38), -1, gg.TYPE_DWORD, gg.SIGN_EQUAL, 0, -1)
-        local coins = gg.getResults(1)[1].value;
+        gg.searchAddress(tostring(offset + 1), -1, gg.TYPE_DWORD, gg.SIGN_EQUAL, 0, -1)
+        local coins = gg.getResults(1)[1];
         print(coins)
         
         
