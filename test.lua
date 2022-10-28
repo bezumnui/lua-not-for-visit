@@ -17,7 +17,9 @@ function showmenu()
         gg.clearResults()
         gg.searchAddress(string.format("%x", tostring(offset + 1)), -1, gg.TYPE_DWORD, gg.SIGN_EQUAL, 0, -1)
         local coins = gg.getResults(1)[1];
-        print(coins)
+        gg.addListItems(coins);
+        coins.freeze = true;
+        
         
         
         gg.toast("---!")
