@@ -11,7 +11,10 @@ function showmenu()
         gg.setRanges(gg.REGION_ANONYMOUS)
         gg.searchNumber("560", gg.TYPE_DWORD, false, gg.SIGN_EQUAL, 0, -1, 1);
         local offset = gg.getResults(1)[1].address;
-        local coins = gg.searchAddress(tostring(offset + 38))
+        print(offset + 38)
+        gg.clearResults()
+        gg.searchAddress(tostring(offset + 38), -1, gg.TYPE_DWORD, gg.SIGN_EQUAL, 0, -1)
+        local coins = gg.getResults(1)[1].value;
         print(coins)
         
         
